@@ -11,7 +11,7 @@
 @var checkbox showCustomAccent "Custom Accent Color" 0
 @var color accentColor "Accent color" #123456
 @var checkbox showCustomLogo "Show Custom Logo" 1
-@advanced text logoUrl "Custom Logo Url (PNG or GIF)" "'https://cdn.dribbble.com/users/43762/screenshots/17407053/media/cc574c6ce3abaf16dbcfeff8bd99ae7f.mp4'"
+@advanced text logoUrl "Custom Logo Url (PNG or GIF)" "'https://i0.wp.com/www.printmag.com/wp-content/uploads/2021/02/4cbe8d_f1ed2800a49649848102c68fc5a66e53mv2.gif?resize=476%2C280&ssl=1'"
 @var select fontFace "Font Face" {
 	"Space Grotesk": "Space Grotesk",
 	"JetBrains Mono": "JetBrains Mono",
@@ -21,6 +21,7 @@
 @var checkbox useCustomFont "Custom Font" 0
 @advanced text customFontName "Custom Font Name" "Archivo"
 @advanced text fontUrl "Custom Font Url (ttf)" "'https://fonts.gstatic.com/s/archivo/v18/k3k6o8UDI-1M0wlSV9XAw6'"
+@var checkbox showBlurThumbnail "Show Blur on Video Cards" 1
 @var checkbox showSidebarSubscriptions "Show Sidebar Subscriptions" 0
 @var checkbox showSidebarExplore "Show Sidebar Explore" 0
 @var checkbox showSidebarMore "Show Sidebar More" 0
@@ -582,6 +583,7 @@
 			transition: .1s ease-in;
 			border-radius: 12px;
 			outline: 1px solid var(--yt-spec-10-percent-layer);
+			background: rgba(@disabled, 0.1);
 
 			&:hover {
 				background: rgba(@accent-colour, 0.2);
@@ -589,12 +591,25 @@
 			}
 			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 		}
+		
+		ytd-thumbnail-overlay-time-status-renderer{
+			backdrop-filter: blur(16px);
+			bottom: 5px;
+			background-color: rgba(@accent-colour, 0.3);
+		}
+		
+		#dismissible {
+			#details.ytd-rich-grid-media, #details.ytd-grid-video-renderer, #details.ytd-rich-grid-slim-media, #card-title.ytd-search-refinement-card-renderer {
+				& when (@showBlurThumbnail =1) {
+					backdrop-filter: blur(28px);
+					margin-top: -5px;
+				}
+				border-radius: 0 0 12px 12px;
+			}
 
-		#dismissible #details {
-			backdrop-filter: blur(58px);
-			border-radius: 0 0 12px 12px;
-			margin-top: -5px;
-			padding: 0 8px 16px 8px;
+			#thumbnail {
+				border-radius: 12px 12px 0 0;
+			}
 		}
 
 		/*------------------------------------------------------------------------------------------------------------------------------------POPUP------------------------*/
@@ -670,6 +685,7 @@
 		}
 
 		.ytd-popup-container,
+		ytd-menu-popup-renderer,
 		ytd-download-quality-selector-renderer.ytd-popup-container,
 		ytd-menu-popup-renderer.ytd-multi-page-menu-renderer, {
 			background-color: transparent !important;
@@ -695,6 +711,7 @@
 		tp-yt-paper-dialog.ytd-popup-container,
 		ytd-menu-popup-renderer.ytd-popup-container,
 		ytd-menu-popup-renderer.ytd-multi-page-menu-renderer,
+		tp-yt-paper-listbox,
 		ytd-multi-page-menu-renderer.ytd-popup-container,
 		{
 			padding: 0px!important;
@@ -721,10 +738,28 @@
 
 		/*------------------------------------------------------------------------------------------------------------------------------------INPUT----------------------------*/
 		#labelAndInputContainer,
-		#placeholder-area.ytd-comment-simplebox-renderer {
+		#placeholder-area.ytd-comment-simplebox-renderer,
+		{
 			border: 1px solid @accent-colour;
+			background-color: rgba(@accent-colour, 0.1);
 			padding: 8px;
 			border-radius: 8px;
+		} // Live Stream Input 
+		yt-live-chat-text-input-field-renderer {
+
+			#input, #label {
+				padding: 8px;
+			}
+
+			#input {
+				border: 1px solid @accent-colour;
+				background-color: rgba(@accent-colour, 0.1);
+				border-radius: 8px;
+			}
+
+			#underline {
+				display: none;
+			}
 		}
 
 		.style-scope.tp-yt-paper-input#container {
