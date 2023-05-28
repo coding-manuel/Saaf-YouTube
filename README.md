@@ -2,6 +2,8 @@
 
 The Saaf YouTube theme is designed to enhance the visual appearance and customization options of the YouTube website. It offers several features to enhance your browsing experience and make the user interface (UI) more stylish. 
 
+![Saaf YouTube](https://github.com/coding-manuel/Saaf-YouTube/assets/53911108/8c1dd244-5404-4d9b-924b-1e265caa4d95)
+
 ## Installation
 
 1. Install Stylus extension for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/), [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) or [Opera](https://addons.opera.com/en-gb/extensions/details/stylus/)
