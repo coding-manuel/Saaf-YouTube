@@ -2,7 +2,7 @@
 @name Saaf YouTube 
 @namespace github.com/coding-manuel/Saaf-YouTube
 @homepageURL https://github.com/coding-manuel/Saaf-YouTube
-@version 1.0.1
+@version 1.0.2
 @description "Saaf YouTube," a sleek and customizable userstyle that brings style and personalization to your YouTube experience.
 @author coding-manuel
 @license MIT
@@ -21,7 +21,7 @@
 @var checkbox useCustomFont "Custom Font" 0
 @advanced text customFontName "Custom Font Name" "Archivo"
 @advanced text fontUrl "Custom Font Url (ttf)" "'https://fonts.gstatic.com/s/archivo/v18/k3k6o8UDI-1M0wlSV9XAw6'"
-@var checkbox showBlurThumbnail "Show Blur on Video Cards" 1
+@var checkbox showBlurThumbnail "Show Blur on Video Cards" 0
 @var checkbox showSidebarSubscriptions "Show Sidebar Subscriptions" 0
 @var checkbox showSidebarExplore "Show Sidebar Explore" 0
 @var checkbox showSidebarMore "Show Sidebar More" 0
